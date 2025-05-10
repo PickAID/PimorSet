@@ -1,6 +1,7 @@
 package org.pickaid.pimorset;
 
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
+import dev.xkmc.l2library.base.L2Registrate;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
@@ -19,6 +20,7 @@ import org.pickaid.pimorset.network.PimorSetNetworkHandler;
 @Mod(PimorSet.MOD_ID)
 public class PimorSet {
     public static final String MOD_ID = "pimorset";
+    public static final L2Registrate REGISTRATE = new L2Registrate(MOD_ID);
 
     public PimorSet() {
         FMLJavaModLoadingContext ctx = FMLJavaModLoadingContext.get();

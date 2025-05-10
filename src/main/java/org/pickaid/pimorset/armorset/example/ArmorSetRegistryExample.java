@@ -7,6 +7,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.RegistryObject;
 import org.pickaid.pibrary.Pibrary;
+import org.pickaid.pimorset.PimorSet;
 import org.pickaid.pimorset.api.registry.ArmorSetRegistry;
 import org.pickaid.pimorset.armorset.ArmorSet;
 import org.pickaid.pimorset.armorset.defaults.DefaultSetEffect;
@@ -32,7 +33,7 @@ public class ArmorSetRegistryExample {
                         .setState(ArmorSet.State.NORMAL)
                         .build()
         );
-        REGISTRATE_EXAMPLE = Pibrary.CI_REGISTRATE
+        REGISTRATE_EXAMPLE = PimorSet.REGISTRATE
                 .generic("registry_entry", ArmorSetRegistry.ARMOR_SET_REGISTRY_KEY,
                 () -> new ArmorSetRegistry.Builder()
                         .effect(new ExampleSetEffect())

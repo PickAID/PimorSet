@@ -204,7 +204,10 @@ repositories {
             includeGroup "dev.latvian.mods"
         }
     }
-    maven { url "https://maven.mihono.cn/repository/pickaid/" }
+    maven {
+        name = "Mihono's maven"
+        url = "https://maven.mihono.cn/repository/pickaid1201/"
+    }
     flatDir { dirs "libraries/${config.mc_version}/all" }
     flatDir { dirs "libraries/${config.mc_version}/classpathOnly" }
     flatDir { dirs "libraries/${config.mc_version}/runtimeOnly" }
@@ -250,16 +253,12 @@ dependencies {
         jarJar(group: 'com.github.llamalad7.mixinextras', name: 'mixinextras-forge', version: "[${config.mixin_extras_version},)")
     }
 
+    // Libraries jarjar.
+
     if (hasConfig("l2_library_version") && !config.l2_library_version.isEmpty()) {
         implementation fg.deobf("dev.xkmc.l2library:l2library:${config.l2_library_version}")
         jarJar(group: 'dev.xkmc', name: 'l2library', version: "[${config.l2_library_version},)")
     }
-
-
-    implementation fg.deobf("com.mihono.pickaid:pibrary:${config.pibrary_version}")
-//    jarJar(group: 'com.mihono.pickaid', name: 'pibrary', version: "[${config.pibrary_version},)")
-
-    // Libraries jarjar.
 
     if (hasConfig("l2damagetracker_version") && !config.l2damagetracker_version.isEmpty()) {
         implementation fg.deobf("dev.xkmc.l2damagetracker:l2damagetracker:${config.l2damagetracker_version}")
@@ -272,8 +271,10 @@ dependencies {
     }
 
     if (hasConfig("pibrary_version") && !config.pibrary_version.isEmpty()) {
-        implementation fg.deobf("com.mihono.pickaid:pibrary:${config.pibrary_version}")
-        jarJar(group: 'com.mihono.pickaid', name: 'pibrary', version: "[${config.pibrary_version},)")
+        implementation fg.deobf("com.mihono.pickaid:Pibrary:${config.pibrary_version}")
+        jarJar(group: 'com.mihono.pickaid', name: 'Pibrary', version: "[${config.pibrary_version},)") {
+            transitive = false
+        }
     }
 
     if (hasConfig("rpg_projects") && !config.rpg_projects.isEmpty()) {

@@ -1,8 +1,8 @@
 package org.pickaid.pimorset.armorset;
 
 import org.pickaid.pibrary.Pibrary;
-import org.pickaid.pibrary.content.key.ConfiguredKey;
-import org.pickaid.pibrary.content.key.KeyRegistry;
+import org.pickaid.pibrary.content.key.registry.ConfiguredKey;
+import org.pickaid.pibrary.content.key.registry.KeyRegistry;
 import org.lwjgl.glfw.GLFW;
 
 public class SkillKey {
