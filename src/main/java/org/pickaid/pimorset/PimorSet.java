@@ -12,8 +12,10 @@ import org.pickaid.pimorset.api.registry.ArmorSetRegistry;
 import org.pickaid.pimorset.armorset.SkillKey;
 import org.pickaid.pimorset.armorset.capability.ArmorSetCapability;
 import org.pickaid.pimorset.armorset.common.ArmorSetAttackListener;
+import org.pickaid.pimorset.armorset.example.ArmorSetRegistryExample;
 import org.pickaid.pimorset.armorset.integration.CuriosIntegration;
 import org.pickaid.pimorset.handlers.server.ArmorSetHandler;
+import org.pickaid.pimorset.handlers.server.KeyHandler;
 import org.pickaid.pimorset.handlers.server.SetEffectHandler;
 import org.pickaid.pimorset.network.PimorSetNetworkHandler;
 
@@ -27,7 +29,7 @@ public class PimorSet {
         IEventBus modEventBus = ctx.getModEventBus();
         initializeRegistries(modEventBus);
         initializeArmorSets(modEventBus);
-//		ArmorSetRegistryExample.init();
+		ArmorSetRegistryExample.init();
         modEventBus.addListener(this::onCommonSetup);
         SkillKey.init();
     }
@@ -45,6 +47,7 @@ public class PimorSet {
         modEventBus.addListener(ArmorSetCapability::register);
         MinecraftForge.EVENT_BUS.register(new ArmorSetHandler());
         MinecraftForge.EVENT_BUS.register(new SetEffectHandler());
+        MinecraftForge.EVENT_BUS.register(new KeyHandler());
         if (ModList.get().isLoaded("curios")) {
             MinecraftForge.EVENT_BUS.register(new CuriosIntegration());
         }

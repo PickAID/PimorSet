@@ -53,18 +53,53 @@ public interface ISetEffect extends IPlayerEffect {
     default void onSkillPress(ServerPlayer player, KeyData keyData) {}
 
     /**
-     * Trigger when the entity is charging skill.
+     * Trigger when the entity is charging key.
      * @param player
-     * @param power
+     * @param keyData
      */
-    default void onSkillCharging(ServerPlayer player, KeyData power) {};
+    default void onSkillCharging(ServerPlayer player, KeyData keyData) {};
 
     /**
-     * Trigger when the entity release skill.
+     * Trigger when the entity holds key.
      * @param player
-     * @param power
+     * @param keyData
      */
-    default void onSkillRelease(ServerPlayer player, KeyData power) {};
+    default void onSkillHeld(ServerPlayer player, KeyData keyData) {};
+
+    /**
+     * Trigger when the entity release skill key.
+     * @param player
+     * @param keyData
+     */
+    default void onSkillRelease(ServerPlayer player, KeyData keyData) {};
+
+    /**
+     * Trigger when the entity finish releasing skill key.
+     * @param player
+     * @param keyData
+     */
+    default void onSkillFinish(ServerPlayer player, KeyData keyData) {};
+
+    /**
+     * Trigger when the skill key time out.
+     * @param player
+     * @param keyData
+     */
+    default void onSkillTimeOut(ServerPlayer player, KeyData keyData) {};
+
+    /**
+     * Trigger when the skill key rapid clicks
+     * @param player
+     * @param keyData
+     */
+    default void onSkillRapidClick(ServerPlayer player, KeyData keyData) {};
+
+    /**
+     * Trigger when the skill key rapid clicks finish
+     * @param player
+     * @param keyData
+     */
+    default void onSkillRapidClickFinish(ServerPlayer player, KeyData keyData) {};
 
     default Component getDescription(Player player, ItemStack stack) {
         return Component.translatable("tooltip.pibrary.armorset." + getIdentifier() + ".description");
