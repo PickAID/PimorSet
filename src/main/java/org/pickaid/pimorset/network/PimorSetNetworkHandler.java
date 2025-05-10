@@ -7,12 +7,13 @@ import net.minecraftforge.network.NetworkDirection;
 import org.pickaid.pibrary.Pibrary;
 import org.pickaid.pibrary.network.key.KeyStatePacket;
 import org.pickaid.pibrary.network.sound.SoundPacket;
+import org.pickaid.pimorset.PimorSet;
 import org.pickaid.pimorset.armorset.capability.IArmorSetCapability;
 import org.pickaid.pimorset.network.armorset.ArmorSetSyncPacket;
 
 public class PimorSetNetworkHandler {
     public static final BasePacketHandler HANDLER = new BasePacketHandler(
-            new ResourceLocation(Pibrary.MOD_ID, "main"),
+            new ResourceLocation(PimorSet.MOD_ID, "main"),
             1,
             handler -> handler.create(ArmorSetSyncPacket.class, NetworkDirection.PLAY_TO_CLIENT)
     );

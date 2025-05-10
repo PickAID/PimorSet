@@ -1,5 +1,6 @@
 package org.pickaid.pimorset.armorset;
 
+import net.minecraftforge.client.settings.KeyModifier;
 import org.pickaid.pibrary.Pibrary;
 import org.pickaid.pibrary.content.key.registry.ConfiguredKey;
 import org.pickaid.pibrary.content.key.registry.KeyRegistry;
@@ -12,8 +13,12 @@ public class SkillKey {
                 .category("armor_set")
                 .enableCharging()
                 .maxPower(4.0f)
-                        .autoReleaseOnMax(true)
-                        .showDebugMessage()
+                .autoReleaseOnMax(true)
+                .setTimeoutTime(100000)
+                .enableRapidClick()
+                .setMaxRapidClickCount(10)
+//                        .setKeyModifier(KeyModifier.ALT)
+//                        .showDebugMessage()
                 .build()
         );
     }

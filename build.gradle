@@ -638,6 +638,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 import java.nio.file.Files
+import java.nio.file.StandardOpenOption
 
 def incrementBuild = {
     if (hasConfig("formal_version") && Boolean.parseBoolean(config.formal_version)) {
@@ -653,7 +654,7 @@ def incrementBuild = {
             }
             return ln
         }
-        Files.write buildTxt, lines, java.nio.file.StandardOpenOption.CREATE
+        Files.write buildTxt, lines, StandardOpenOption.CREATE
     }
 }
 

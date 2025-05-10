@@ -29,7 +29,7 @@ public class PimorSet {
         IEventBus modEventBus = ctx.getModEventBus();
         initializeRegistries(modEventBus);
         initializeArmorSets(modEventBus);
-		ArmorSetRegistryExample.init();
+//		ArmorSetRegistryExample.init();
         modEventBus.addListener(this::onCommonSetup);
         SkillKey.init();
     }
