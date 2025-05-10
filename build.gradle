@@ -256,6 +256,9 @@ dependencies {
     }
 
 
+    implementation fg.deobf("com.mihono:pibrary:${config.pibrary_version}")
+    jarJar(group: 'com.mihono', name: 'pibrary', version: "[${config.pibrary_version},)")
+
     // Libraries jarjar.
 
     if (hasConfig("l2damagetracker_version") && !config.l2damagetracker_version.isEmpty()) {

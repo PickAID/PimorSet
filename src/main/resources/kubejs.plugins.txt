@@ -1,0 +1,1 @@
+org.pickaid.pimorset.kubejs.PimorSetJSPlugin
