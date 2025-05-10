@@ -256,8 +256,8 @@ dependencies {
     }
 
 
-    implementation fg.deobf("com.mihono:pibrary:${config.pibrary_version}")
-    jarJar(group: 'com.mihono', name: 'pibrary', version: "[${config.pibrary_version},)")
+    implementation fg.deobf("com.mihono.pickaid:pibrary:${config.pibrary_version}")
+//    jarJar(group: 'com.mihono.pickaid', name: 'pibrary', version: "[${config.pibrary_version},)")
 
     // Libraries jarjar.
 
@@ -682,13 +682,12 @@ tasks.register("incrementBuildVersionProperty") {
 }
 tasks.build.dependsOn tasks.incrementBuildVersionProperty
 
-tasks.jarJar.finalizedBy('reobfJarJar')
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+reobf {
+    jarJar {}
 }
 
+tasks.jarJar.finalizedBy('reobfJarJar')
+
 tasks.jarJar.configure {
-    // remove '-all' from jarJar jar file
     archiveClassifier.set('')
 }

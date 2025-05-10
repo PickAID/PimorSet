@@ -13,7 +13,6 @@ import org.pickaid.pimorset.armorset.ArmorSet;
 import org.pickaid.pimorset.armorset.capability.ArmorSetCapability;
 import org.pickaid.pimorset.armorset.common.ArmorSetManager;
 import org.pickaid.pimorset.armorset.common.ArmorSetUpdater;
-import org.pickaid.pibrary.network.PibraryNetworkHandler;
 import org.pickaid.pimorset.network.PimorSetNetworkHandler;
 
 public class ArmorSetHandler {
