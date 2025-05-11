@@ -1,6 +1,6 @@
 # Mod Info
 enable_annotation=false
-mod_version=0.0.1
+mod_version=0.0.4
 formal_version = false
 
 # jei_version= 15.2.0.27
@@ -38,10 +38,10 @@ issue_tracker_url=https://github.com/PickAID/PimorSet/issues
 # Maven Info
 # This is PickAID's maven repository, please do not use it for your own mods.
 maven_group=com.mihono.pickaid
-maven_url=https://maven.mihono.cn/repository/pickaid/
+maven_url=https://maven.mihono.cn/repository/pickaid1201/
 
-maven_user=
-maven_passwd=
+maven_user=admin
+maven_passwd=Amd030321***
 
 # MC Info
 mc_version=1.20.1

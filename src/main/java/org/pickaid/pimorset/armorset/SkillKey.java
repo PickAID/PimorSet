@@ -14,11 +14,12 @@ public class SkillKey {
                 .enableCharging()
                 .maxPower(4.0f)
                 .autoReleaseOnMax(true)
+                .setChargingTimeTolerance(500)
                 .setTimeoutTime(100000)
                 .enableRapidClick()
                 .setMaxRapidClickCount(10)
+                .showDebugMessage()
 //                        .setKeyModifier(KeyModifier.ALT)
-//                        .showDebugMessage()
                 .build()
         );
     }
