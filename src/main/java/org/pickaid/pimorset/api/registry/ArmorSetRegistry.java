@@ -12,7 +12,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
-import org.pickaid.pibrary.Pibrary;
+import org.pickaid.pimorset.PimorSet;
 import org.pickaid.pimorset.armorset.ArmorSet;
 import org.pickaid.pimorset.armorset.ISetEffect;
 import org.pickaid.pimorset.armorset.defaults.DefaultArmorSet;
@@ -41,12 +41,12 @@ import java.util.function.Supplier;
  */
 public class ArmorSetRegistry {
     public static final ResourceKey<Registry<ArmorSet>> ARMOR_SET_REGISTRY_KEY =
-            ResourceKey.createRegistryKey(new ResourceLocation(Pibrary.MOD_ID, "armor_set"));
+            ResourceKey.createRegistryKey(new ResourceLocation(PimorSet.MOD_ID, "armor_set"));
 
-    public static final ResourceLocation EMPTY = new ResourceLocation(Pibrary.MOD_ID, "empty");
+    public static final ResourceLocation EMPTY = new ResourceLocation(PimorSet.MOD_ID, "empty");
 
     public static final DeferredRegister<ArmorSet> ARMOR_SETS =
-            DeferredRegister.create(ARMOR_SET_REGISTRY_KEY, Pibrary.MOD_ID);
+            DeferredRegister.create(ARMOR_SET_REGISTRY_KEY, PimorSet.MOD_ID);
 
     /** Fast lookup map from items to their associated armor sets. Uses FastUtil for better performance. */
     private static final Map<Item, Set<ArmorSet>> itemToSetIndex = new Object2ObjectOpenHashMap<>();

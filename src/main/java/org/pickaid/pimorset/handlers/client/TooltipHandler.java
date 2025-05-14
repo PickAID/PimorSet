@@ -11,7 +11,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.pickaid.pibrary.Pibrary;
+import org.pickaid.pimorset.PimorSet;
 import org.pickaid.pimorset.api.registry.ArmorSetRegistry;
 import org.pickaid.pimorset.armorset.ArmorSet;
 import org.pickaid.pimorset.armorset.ISetEffect;
@@ -21,7 +21,7 @@ import org.pickaid.pimorset.armorset.common.ArmorSetManager;
  * Handles tooltips for armor set items.
  * Displays information about active armor sets and their effects when hovering over items.
  */
-@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = Pibrary.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = PimorSet.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class TooltipHandler {
 
     private static final Component EMPTY_LINE = Component.empty();

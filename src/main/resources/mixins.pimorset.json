@@ -3,7 +3,7 @@
  "priority": 800,
  "minVersion": "0.8",
  "package": "org.pickaid.pimorset.mixin",
- "refmap": "examplemod.refmap.json",
+ "refmap": "pimorset.refmap.json",
  "compatibilityLevel": "JAVA_17",
  "mixins": [
  ],

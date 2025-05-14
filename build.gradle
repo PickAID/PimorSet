@@ -155,6 +155,10 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
+        name = "Mihono's maven"
+        url = "https://maven.mihono.cn/repository/pickaid1201/"
+    }
+    maven {
         name = "Jared's maven"
         url = "https://maven.blamejared.com/"
         content {
@@ -165,13 +169,10 @@ repositories {
         name = 'tterrag'
         url = 'https://maven.tterrag.com/'
     }
+
     maven {
         name = 'GeckoLib'
         url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
-        content {
-            includeGroupByRegex("software\\.bernie.*")
-            includeGroup("com.eliotlash.mclib")
-        }
     }
     maven {
         url = "https://maven.theillusivec4.top/"
@@ -198,15 +199,18 @@ repositories {
         }
     }
     maven {
-        name = "Lat's Maven"
-        url = "https://maven.saps.dev/minecraft"
+        url "https://maven.latvian.dev/releases"
         content {
             includeGroup "dev.latvian.mods"
+            includeGroup "dev.latvian.apps"
         }
     }
+
     maven {
-        name = "Mihono's maven"
-        url = "https://maven.mihono.cn/repository/pickaid1201/"
+        url 'https://jitpack.io'
+        content {
+            includeGroup "com.github.rtyley"
+        }
     }
     flatDir { dirs "libraries/${config.mc_version}/all" }
     flatDir { dirs "libraries/${config.mc_version}/classpathOnly" }
@@ -218,8 +222,8 @@ dependencies {
     minecraft "net.neoforged:forge:${config.mc_version}-${config.forge_version}"
     compileOnly(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${config.mixin_extras_version}"))
 
-    compileOnly fg.deobf("com.tterrag.registrate:Registrate:${config.registrate_version}")
-    jarJar(group: 'com.tterrag.registrate', name: 'Registrate', version: "[MC1.20,MC1.21)")
+//    compileOnly fg.deobf("com.tterrag.registrate:Registrate:${config.registrate_version}")
+//    jarJar(group: 'com.tterrag.registrate', name: 'Registrate', version: "[MC1.20,MC1.21)")
 
     if (hasConfig("jei_version") && !config.jei_version.isEmpty()) {
         compileOnly fg.deobf("mezz.jei:jei-${config.mc_version}-server-api:${config.jei_version}")
@@ -227,8 +231,17 @@ dependencies {
         runtimeOnly fg.deobf("mezz.jei:jei-${config.mc_version}-forge:${config.jei_version}")
     }
 
+    if (hasConfig("pibrary_version") && !config.pibrary_version.isEmpty()) {
+        implementation fg.deobf("com.mihono.pickaid:pibrary:${config.pibrary_version}") {
+            transitive = false
+        }
+        jarJar(group: 'com.mihono.pickaid', name: 'pibrary', version: "[${config.pibrary_version},)"){
+            transitive = false
+        }
+    }
+
     if (hasConfig("geckolib_version") && !config.geckolib_version.isEmpty()) {
-        implementation fg.deobf("software.bernie.geckolib:geckolib-neoforge-${config.mc_version}:${config.geckolib_version}")
+        implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${config.mc_version}:${config.geckolib_version}")
         implementation("com.eliotlash.mclib:mclib:20")
         jarJar(group: 'software.bernie.geckolib', name: "geckolib-neoforge-${config.mc_version}", version: "[${config.geckolib_version},)")
     }
@@ -268,11 +281,6 @@ dependencies {
     if (hasConfig("l2serial_version") && !config.l2serial_version.isEmpty()) {
         implementation fg.deobf("dev.xkmc.l2serial:l2serial:${config.l2serial_version}")
         jarJar(group: 'dev.xkmc', name: 'l2serial', version: "[${config.l2serial_version},)")
-    }
-
-    if (hasConfig("pibrary_version") && !config.pibrary_version.isEmpty()) {
-        implementation fg.deobf("com.mihono.pickaid:Pibrary:${config.pibrary_version}")
-        jarJar(group: 'com.mihono.pickaid', name: 'Pibrary', version: "[${config.pibrary_version},)")
     }
 
     if (hasConfig("rpg_projects") && !config.rpg_projects.isEmpty()) {
@@ -397,7 +405,18 @@ jar {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifact jar
+//            artifact jar
+            from components.java
+            artifact(tasks.jarJar)
+            artifactId = config.mod_id
+
+            pom {
+                packaging = 'pom'
+                withXml {
+                    def root = asNode()
+                    root.dependencies.replaceNode {}
+                }
+            }
         }
     }
     repositories {
@@ -634,7 +653,7 @@ afterEvaluate {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    options.encoding = 'UTF-8'
 }
 
 import java.nio.file.Files
