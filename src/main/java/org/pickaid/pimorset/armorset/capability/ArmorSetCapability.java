@@ -18,7 +18,7 @@ import org.pickaid.pimorset.PimorSet;
 @Mod.EventBusSubscriber(modid = PimorSet.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ArmorSetCapability {
     public static final Capability<IArmorSetCapability> ARMOR_SET_CAPABILITY = CapabilityManager.get(new CapabilityToken<>(){});
-    public static final ResourceLocation ARMOR_SET_CAPABILITY_ID = new ResourceLocation(PimorSet.MOD_ID, "armor_set");
+    public static final ResourceLocation ARMOR_SET_CAPABILITY_ID = ResourceLocation.fromNamespaceAndPath(PimorSet.MOD_ID, "armor_set");
 
     private static boolean isRegistered = false;
 

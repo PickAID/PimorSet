@@ -41,9 +41,9 @@ import java.util.function.Supplier;
  */
 public class ArmorSetRegistry {
     public static final ResourceKey<Registry<ArmorSet>> ARMOR_SET_REGISTRY_KEY =
-            ResourceKey.createRegistryKey(new ResourceLocation(PimorSet.MOD_ID, "armor_set"));
+            ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(PimorSet.MOD_ID, "armor_set"));
 
-    public static final ResourceLocation EMPTY = new ResourceLocation(PimorSet.MOD_ID, "empty");
+    public static final ResourceLocation EMPTY = ResourceLocation.fromNamespaceAndPath(PimorSet.MOD_ID, "empty");
 
     public static final DeferredRegister<ArmorSet> ARMOR_SETS =
             DeferredRegister.create(ARMOR_SET_REGISTRY_KEY, PimorSet.MOD_ID);

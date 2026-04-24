@@ -1,0 +1,73 @@
+schema_version = 1
+template_version = "1.20.1-template-1.0.0"
+
+[mod]
+mod_id = "pimorset"
+mod_name = "pimorset"
+version = "0.0.4"
+version_suffix = ""
+group = "com.mihono.pickaid"
+authors = ["M1hono"]
+license = "MIT"
+description = "An Armor Set Library for easier armor set creation."
+credits = "None"
+issue_tracker_url = "https://github.com/PickAID/PimorSet/issues"
+
+[features]
+jei = false
+curios = false
+geckolib = false
+player_animator = false
+mixin_extras = false
+
+[overrides]
+# Optional built-in feature version overrides.
+# jei_version = "15.2.0.27"
+# curios_version = "5.9.1+1.20.1"
+# geckolib_version = "4.4.9"
+# player_animator_version = "1.0.2+1.20"
+# bendylib_version = "1.0.2"
+# mixin_extras_version = "0.2.0-beta.8"
+
+[repositories]
+# Common ecosystem repositories are listed directly so the project surface stays visible.
+blamejared = "https://maven.blamejared.com/"
+tterrag = "https://maven.tterrag.com/"
+sponge = "https://repo.spongepowered.org/maven"
+geckolib = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/"
+curios = "https://maven.theillusivec4.top/"
+kosmx = "https://maven.kosmx.dev/"
+cursemaven = "https://cursemaven.com"
+architectury = "https://maven.architectury.dev"
+latvian = "https://maven.latvian.dev/releases"
+jitpack = "https://jitpack.io"
+mihono = "https://maven.mihono.cn/repository/pickaid1201/"
+
+[dependencies]
+# Generic dependency buckets stay available if this project later moves more logic out of build.gradle.
+
+[compat]
+# Legacy compatibility values still consumed by the current build.gradle.
+architectury_version = "9.1.12"
+curios_version = "5.9.1+1.20.1"
+enable_annotation = "false"
+formal_version = "false"
+kubejs_version = "2001.6.4-build.120"
+l2_library_version = "2.4.29"
+l2damagetracker_version = "0.3.7"
+mc_user = "Togawa_Sakiko_,b6a0483d-eaf2-4be6-8395-5eecdaa310a6"
+mixin_extras_version = "0.2.0-beta.8"
+pibrary_version = "0.4.34"
+reference_projects = "false"
+rhino_version = "2001.2.2-build.18"
+rpg_projects = "false"
+
+[publish]
+maven_url = "https://maven.mihono.cn/repository/pickaid1201/"
+curseforge_project = 0
+modrinth_project = ""
+release_type = "alpha"
+
+[naming]
+archive_name = "pimorset"
+jar_format = "{archive_name}-{mc_version}-{version}"

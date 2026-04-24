@@ -13,7 +13,7 @@ import org.pickaid.pimorset.network.armorset.ArmorSetSyncPacket;
 
 public class PimorSetNetworkHandler {
     public static final BasePacketHandler HANDLER = new BasePacketHandler(
-            new ResourceLocation(PimorSet.MOD_ID, "main"),
+            ResourceLocation.fromNamespaceAndPath(PimorSet.MOD_ID, "main"),
             1,
             handler -> handler.create(ArmorSetSyncPacket.class, NetworkDirection.PLAY_TO_CLIENT)
     );

@@ -57,7 +57,7 @@ public class ArmorSetManager {
     @Info("This method is used to get the armor set by its identifier.")
     public static Optional<ArmorSet> getArmorSet(String identifier) {
         try {
-            ResourceLocation id = new ResourceLocation(identifier);
+            ResourceLocation id = ResourceLocation.parse(identifier);
             return Optional.ofNullable(ArmorSetRegistry.getRegistry().getValue(id));
         } catch (Exception e) {
             return Optional.empty();

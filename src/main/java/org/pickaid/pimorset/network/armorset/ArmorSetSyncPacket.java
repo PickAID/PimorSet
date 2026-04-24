@@ -43,7 +43,7 @@ public class ArmorSetSyncPacket extends SerialPacketBase {
         if (clientPlayer != null) {
             clientPlayer.getCapability(ArmorSetCapability.ARMOR_SET_CAPABILITY).ifPresent(cap -> {
                 try {
-                    ResourceLocation id = new ResourceLocation(activeSetIdentifier);
+                    ResourceLocation id = ResourceLocation.parse(activeSetIdentifier);
                     ArmorSet activeSet = ArmorSetRegistry.getRegistry().getValue(id);
                     cap.setActiveSet(activeSet != null ? activeSet : ArmorSetRegistry.EMPTY_SET.get());
                 } catch (Exception e) {
