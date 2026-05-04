@@ -110,7 +110,7 @@ public class ArmorSetCapabilityHandler implements IArmorSetCapability {
     public void deserializeNBT(CompoundTag nbt) {
         if (nbt.contains("activeSet")) {
             try {
-                ResourceLocation id = ResourceLocation.parse(nbt.getString("activeSet"));
+                ResourceLocation id = new ResourceLocation(nbt.getString("activeSet"));
                 this.activeSet = ArmorSetRegistry.getRegistry().getValue(id);
 
                 if (this.activeSet != null) {
