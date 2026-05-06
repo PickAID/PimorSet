@@ -34,7 +34,7 @@ public class PimorSet {
         SkillKey.init();
     }
 
-    private void initializeRegistries(IEventBus modEventBus) {`
+    private void initializeRegistries(IEventBus modEventBus) {
         ArmorSetRegistry.register(modEventBus);
     }
 
