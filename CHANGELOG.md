@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.10
+
+- Document the P0 integration status, automated evidence, and remaining runClient/manual gameplay gap.
+
 ## 0.0.9
 
 - Add a gravity lift active ability descriptor that links cooldown, resource check, datapack graph, damage, render cue, and HUD output.

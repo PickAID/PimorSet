@@ -4,7 +4,7 @@ template_version = "1.20.1-template-1.0.0"
 [mod]
 mod_id = "pimorset"
 mod_name = "pimorset"
-version = "0.0.9"
+version = "0.0.10"
 version_suffix = ""
 group = "com.mihono.pickaid"
 authors = ["M1hono"]
