@@ -35,6 +35,7 @@ final class PimorSetRuntimeSliceTest {
         PiActionResult graphAction = slice.graphAction("damage_request");
         PiSceneFrame frame = slice.sceneFrame(120L, 2L);
         PiAbilityHudState hud = slice.hudState(0.5F);
+        PimorSetRuntimeSlice.GravityLiftAbility gravityLift = slice.gravityLiftAbility();
         PiRigSocketResolution rigSocket = slice.castRigSocket();
         PiAvatarCue avatarCue = slice.avatarCue();
         PiAvatarAnchorResolution avatarAnchor = slice.avatarAnchor();
@@ -47,6 +48,13 @@ final class PimorSetRuntimeSliceTest {
         assertEquals(PiNetScopeKind.TRACKING_ENTITY, slice.syncScope(42).kind());
         assertFalse(frame.cues().isEmpty());
         assertEquals(40, hud.cooldownTicks());
+        assertEquals(id("pimorset:gravity_lift"), gravityLift.abilityId());
+        assertEquals(80, gravityLift.cooldownTicks());
+        assertEquals("storm_charge", gravityLift.resourceKey());
+        assertEquals(id("pimorset:gravity_lift"), gravityLift.graphId());
+        assertEquals(id("pimorset:set_burst"), gravityLift.damage().damageType());
+        assertFalse(gravityLift.sceneFrame().cues().isEmpty());
+        assertEquals(80, gravityLift.hudState().cooldownTicks());
         assertEquals("right_hand", rigSocket.socket().name());
         assertEquals(PiRigFallbackReason.SERVER_SOCKET, rigSocket.reason());
         assertEquals("set_burst", avatarCue.animationId());

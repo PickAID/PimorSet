@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.9
+
+- Add a gravity lift active ability descriptor that links cooldown, resource check, datapack graph, damage, render cue, and HUD output.
+
 ## 0.0.8
 
 - Add the editable gravity lift datapack graph resource for the PimorSet P0 integration example.

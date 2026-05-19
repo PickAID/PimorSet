@@ -42,6 +42,8 @@ import org.pickaid.pirig.api.PiRigSocketResolver;
 import org.pickaid.pirenderruntime.api.PiCueType;
 import org.pickaid.pirenderruntime.api.PiSceneFrame;
 
+import java.util.Objects;
+
 public record PimorSetRuntimeSlice(
         ResourceLocation setId,
         PiActor actor,
@@ -53,6 +55,7 @@ public record PimorSetRuntimeSlice(
     private static final ResourceLocation HOLD_INTERACTION_ID = new ResourceLocation("pikey", "hold");
     private static final ResourceLocation DAMAGE_TYPE = id("set_burst");
     private static final PiCueType<String> CAST_CUE = PiCueType.create(id("cast_cue"), String.class);
+    private static final ResourceLocation GRAVITY_LIFT_ID = id("gravity_lift");
 
     public static PimorSetRuntimeSlice playerActiveSkill(ResourceLocation setId, int cooldownTicks) {
         PiActorType actorType = new PiActorType(id("armor_set_actor"));
@@ -105,6 +108,18 @@ public record PimorSetRuntimeSlice(
                 .build();
     }
 
+    public GravityLiftAbility gravityLiftAbility() {
+        return new GravityLiftAbility(
+                GRAVITY_LIFT_ID,
+                80,
+                "storm_charge",
+                GRAVITY_LIFT_ID,
+                damageRequest(7.0F),
+                sceneFrame(0L, 0L),
+                hudStateForCooldown(80)
+        );
+    }
+
     public PiRigSocketResolution castRigSocket() {
         return PiRigSocketResolver.empty()
                 .withServerSocket("right_hand", PiRigAnchor.bodyOffset(0.0D, 1.4D, -0.4D))
@@ -155,6 +170,34 @@ public record PimorSetRuntimeSlice(
 
     private static ResourceLocation id(String path) {
         return new ResourceLocation("pimorset", path);
+    }
+
+    private static PiAbilityHudState hudStateForCooldown(int cooldownTicks) {
+        return PiAbilityHudState.builder()
+                .cooldownTicks(cooldownTicks)
+                .build();
+    }
+
+    public record GravityLiftAbility(
+            ResourceLocation abilityId,
+            int cooldownTicks,
+            String resourceKey,
+            ResourceLocation graphId,
+            PiDamageRequest damage,
+            PiSceneFrame sceneFrame,
+            PiAbilityHudState hudState
+    ) {
+        public GravityLiftAbility {
+            Objects.requireNonNull(abilityId, "abilityId");
+            if (cooldownTicks < 0) {
+                throw new IllegalArgumentException("cooldownTicks must be non-negative");
+            }
+            resourceKey = Objects.requireNonNull(resourceKey, "resourceKey");
+            graphId = Objects.requireNonNull(graphId, "graphId");
+            damage = Objects.requireNonNull(damage, "damage");
+            sceneFrame = Objects.requireNonNull(sceneFrame, "sceneFrame");
+            hudState = Objects.requireNonNull(hudState, "hudState");
+        }
     }
 
     private static final class SetAbilityType extends PiAbilityType<Integer> {
