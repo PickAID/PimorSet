@@ -2,6 +2,11 @@ package org.pickaid.pimorset.runtime;
 
 import net.minecraft.resources.ResourceLocation;
 import org.junit.jupiter.api.Test;
+import org.pickaid.picontent.api.datagen.PiContentDatagenBundle;
+import org.pickaid.picontent.api.datagen.PiCreativeSampleDeclaration;
+import org.pickaid.picontent.api.datagen.PiLootDeclaration;
+import org.pickaid.picontent.api.datagen.PiModelDeclaration;
+import org.pickaid.picontent.api.datagen.PiTagDeclaration;
 import org.pickaid.pidatagraph.result.PiActionResult;
 import org.pickaid.pidamage.api.request.PiDamageRequest;
 import org.pickaid.piavatar.api.PiAvatarAnchorResolution;
@@ -33,6 +38,7 @@ final class PimorSetRuntimeSliceTest {
         PiRigSocketResolution rigSocket = slice.castRigSocket();
         PiAvatarCue avatarCue = slice.avatarCue();
         PiAvatarAnchorResolution avatarAnchor = slice.avatarAnchor();
+        PiContentDatagenBundle content = slice.contentBundle();
 
         assertEquals(id("pimorset:storm_set"), slice.actor().id());
         assertEquals(id("pimorset:active_skill"), packet.actionId());
@@ -48,6 +54,13 @@ final class PimorSetRuntimeSliceTest {
         assertEquals(PiFirstPersonMode.VANILLA, avatarCue.firstPersonMode());
         assertEquals("right_hand", avatarAnchor.anchor().name());
         assertEquals(PiAvatarAnchorResolution.Reason.BODY_OFFSET, avatarAnchor.reason());
+        assertEquals("Storm Staff", content.lang().get(0).value());
+        assertEquals("storm_altar", content.blockEntityNames().get(0));
+        assertFalse(content.itemModels().isEmpty());
+        assertEquals(new PiModelDeclaration("blockstate", "storm_altar", "horizontal", "block/storm_altar"), content.blockstates().get(0));
+        assertEquals(new PiLootDeclaration("storm_altar", "self"), content.loot().get(0));
+        assertEquals(new PiTagDeclaration("item", "pimorset:staves", "storm_staff"), content.tags().get(0));
+        assertEquals(new PiCreativeSampleDeclaration("pimorset", "storm_altar"), content.creativeSamples().get(0));
     }
 
     private static ResourceLocation id(String value) {

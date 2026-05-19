@@ -2,6 +2,19 @@ package org.pickaid.pimorset.runtime.slice;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.resources.ResourceLocation;
+import org.pickaid.picontent.api.block.PiBlockBuilder;
+import org.pickaid.picontent.api.block.PiBlockLoot;
+import org.pickaid.picontent.api.block.PiBlockModels;
+import org.pickaid.picontent.api.block.PiBlockPlacement;
+import org.pickaid.picontent.api.block.PiBlockPresets;
+import org.pickaid.picontent.api.block.PiBlockShapes;
+import org.pickaid.picontent.api.blockentity.PiBlockEntityBuilder;
+import org.pickaid.picontent.api.blockentity.PiContentRenderers;
+import org.pickaid.picontent.api.blockentity.PiContentSync;
+import org.pickaid.picontent.api.datagen.PiContentDatagenBundle;
+import org.pickaid.picontent.api.item.PiItemBuilder;
+import org.pickaid.picontent.api.item.PiItemModels;
+import org.pickaid.picontent.api.item.PiItemPresets;
 import org.pickaid.pidatagraph.result.PiActionResult;
 import org.pickaid.pidamage.api.request.PiDamageRequest;
 import org.pickaid.piavatar.api.PiAvatarAnchor;
@@ -110,6 +123,34 @@ public record PimorSetRuntimeSlice(
         return PiAvatarAnchorResolver.empty()
                 .withBodyOffset(anchor, 0.0D, 1.4D, -0.4D)
                 .resolve(anchor);
+    }
+
+    public PiContentDatagenBundle contentBundle() {
+        return PiContentDatagenBundle.empty()
+                .item(PiItemBuilder.named("storm_staff")
+                        .section("pimorset")
+                        .properties(PiItemPresets.staff())
+                        .itemTag("pimorset:staves")
+                        .lang("Storm Staff")
+                        .model(PiItemModels.handheld("item/storm_staff"))
+                        .plan())
+                .block(PiBlockBuilder.named("storm_altar")
+                        .section("pimorset")
+                        .properties(PiBlockPresets.stoneMachine().lightLevel(4).noOcclusion())
+                        .blockTag("pimorset:altars")
+                        .itemTag("pimorset:altar_items")
+                        .shape(PiBlockShapes.box16(1, 0, 1, 15, 12, 15))
+                        .placement(PiBlockPlacement.horizontal())
+                        .loot(PiBlockLoot.self())
+                        .blockstate(PiBlockModels.horizontal("block/storm_altar"))
+                        .simpleItem()
+                        .creative("pimorset")
+                        .plan())
+                .blockEntity(PiBlockEntityBuilder.named("storm_altar")
+                        .validBlock("pimorset:storm_altar")
+                        .dirtySync(PiContentSync.tracking("storm_altar_state"))
+                        .renderer(PiContentRenderers.blockEntity("storm_altar"))
+                        .plan());
     }
 
     private static ResourceLocation id(String path) {
