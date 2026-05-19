@@ -4,6 +4,12 @@ import com.mojang.serialization.Codec;
 import net.minecraft.resources.ResourceLocation;
 import org.pickaid.pidatagraph.result.PiActionResult;
 import org.pickaid.pidamage.api.request.PiDamageRequest;
+import org.pickaid.piavatar.api.PiAvatarAnchor;
+import org.pickaid.piavatar.api.PiAvatarAnchorResolution;
+import org.pickaid.piavatar.api.PiAvatarAnchorResolver;
+import org.pickaid.piavatar.api.PiAvatarCue;
+import org.pickaid.piavatar.api.PiAvatarMask;
+import org.pickaid.piavatar.api.PiFirstPersonMode;
 import org.pickaid.pihud.PiAbilityHudState;
 import org.pickaid.pikey.api.PiInputContext;
 import org.pickaid.pikey.api.PiInputPhase;
@@ -16,6 +22,10 @@ import org.pickaid.piengine.api.effect.PiEffectHookShape;
 import org.pickaid.piengine.api.effect.PiEffectType;
 import org.pickaid.pinet.api.scope.PiNetScope;
 import org.pickaid.pinet.api.scope.PiPacketBudget;
+import org.pickaid.pirig.api.PiRigAnchor;
+import org.pickaid.pirig.api.PiRigSocket;
+import org.pickaid.pirig.api.PiRigSocketResolution;
+import org.pickaid.pirig.api.PiRigSocketResolver;
 import org.pickaid.pirenderruntime.api.PiCueType;
 import org.pickaid.pirenderruntime.api.PiSceneFrame;
 
@@ -80,6 +90,26 @@ public record PimorSetRuntimeSlice(
                 .cooldownTicks(cooldownTicks)
                 .captureEscapeProgress(captureEscapeProgress)
                 .build();
+    }
+
+    public PiRigSocketResolution castRigSocket() {
+        return PiRigSocketResolver.empty()
+                .withServerSocket("right_hand", PiRigAnchor.bodyOffset(0.0D, 1.4D, -0.4D))
+                .resolve(PiRigSocket.named("right_hand"));
+    }
+
+    public PiAvatarCue avatarCue() {
+        return PiAvatarCue.animation("set_burst")
+                .mask(PiAvatarMask.UPPER_BODY)
+                .firstPerson(PiFirstPersonMode.VANILLA)
+                .build();
+    }
+
+    public PiAvatarAnchorResolution avatarAnchor() {
+        PiAvatarAnchor anchor = PiAvatarAnchor.named("right_hand");
+        return PiAvatarAnchorResolver.empty()
+                .withBodyOffset(anchor, 0.0D, 1.4D, -0.4D)
+                .resolve(anchor);
     }
 
     private static ResourceLocation id(String path) {
