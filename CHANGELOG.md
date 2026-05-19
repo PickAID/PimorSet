@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.8
+
+- Add the editable gravity lift datapack graph resource for the PimorSet P0 integration example.
+
 ## 0.0.7
 
 - Add a PiContent-backed PimorSet smoke example for the storm staff, altar block, and altar block entity declarations.

@@ -1,0 +1,59 @@
+{
+  "ability": "pimorset:gravity_lift",
+  "capture_socket": "right_hand",
+  "throw_after_ticks": 46,
+  "steps": [
+    {
+      "action": "select_nearby_living_cone",
+      "range": 8.0,
+      "angle_degrees": 55
+    },
+    {
+      "action": "filter_not_self"
+    },
+    {
+      "action": "filter_capturable"
+    },
+    {
+      "action": "capture_nearest",
+      "socket": "right_hand"
+    },
+    {
+      "action": "delay",
+      "ticks": 46
+    },
+    {
+      "action": "throw_forward",
+      "velocity": 1.35
+    },
+    {
+      "action": "request_impact_damage",
+      "damage": 7.0
+    },
+    {
+      "action": "emit_beam_cue",
+      "cue": "beam"
+    },
+    {
+      "action": "emit_camera_impulse",
+      "cue": "camera_impulse"
+    }
+  ],
+  "impact_damage": {
+    "damage_type": "pimorset:set_burst",
+    "amount": 7.0,
+    "knockback": 0.8
+  },
+  "cues": [
+    {
+      "type": "beam",
+      "from": "right_hand",
+      "to": "target"
+    },
+    {
+      "type": "camera_impulse",
+      "strength": 0.35,
+      "duration_ticks": 8
+    }
+  ]
+}
