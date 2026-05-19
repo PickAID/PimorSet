@@ -4,7 +4,7 @@ template_version = "1.20.1-template-1.0.0"
 [mod]
 mod_id = "pimorset"
 mod_name = "pimorset"
-version = "0.0.10"
+version = "0.0.11"
 version_suffix = ""
 group = "com.mihono.pickaid"
 authors = ["M1hono"]
@@ -58,30 +58,30 @@ rhino = "dev.latvian.mods:rhino-forge:2001.2.2-build.18"
 
 [dependencies.deobf_implementation]
 architectury = { notation = "dev.architectury:architectury-forge:9.1.12", transitive = false }
-pibrary = { notation = "com.mihono.pickaid:pibrary:0.0.11-dev", transitive = false }
+pibrary = { notation = "com.mihono.pickaid:pibrary:0.0.11", transitive = false }
 pikey = { notation = "com.mihono.pickaid:pikey:0.0.2", transitive = false }
 piengine = { notation = "com.mihono.pickaid:piengine:0.0.5", transitive = false }
 pidatagraph = { notation = "com.mihono.pickaid:pidatagraph:0.0.6", transitive = false }
 pidamage = { notation = "com.mihono.pickaid:pidamage:0.0.1", transitive = false }
 pinet = { notation = "com.mihono.pickaid:pinet:0.0.6", transitive = false }
-pirenderruntime = { notation = "com.mihono.pickaid:pirenderruntime:0.0.2", transitive = false }
+pirenderruntime = { notation = "com.mihono.pickaid:pirenderruntime:0.0.3", transitive = false }
 pihud = { notation = "com.mihono.pickaid:pihud:0.0.2", transitive = false }
 pigeorender = { notation = "com.mihono.pickaid:pigeorender:0.0.2", transitive = false }
 piplayeranim = { notation = "com.mihono.pickaid:piplayeranim:0.0.2", transitive = false }
-picontent = { notation = "com.mihono.pickaid:picontent:0.0.5", transitive = false }
+picontent = { notation = "com.mihono.pickaid:picontent:0.0.6", transitive = false }
 
 [dependencies.jarjar]
-pibrary = { notation = "com.mihono.pickaid:pibrary:0.0.11-dev", range = "[0.0.11-dev,0.1.0)", transitive = false }
+pibrary = { notation = "com.mihono.pickaid:pibrary:0.0.11", range = "[0.0.11,0.1.0)", transitive = false }
 pikey = { notation = "com.mihono.pickaid:pikey:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
 piengine = { notation = "com.mihono.pickaid:piengine:0.0.5", range = "[0.0.5,0.1.0)", transitive = false }
 pidatagraph = { notation = "com.mihono.pickaid:pidatagraph:0.0.6", range = "[0.0.6,0.1.0)", transitive = false }
 pidamage = { notation = "com.mihono.pickaid:pidamage:0.0.1", range = "[0.0.1,0.1.0)", transitive = false }
 pinet = { notation = "com.mihono.pickaid:pinet:0.0.6", range = "[0.0.6,0.1.0)", transitive = false }
-pirenderruntime = { notation = "com.mihono.pickaid:pirenderruntime:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
+pirenderruntime = { notation = "com.mihono.pickaid:pirenderruntime:0.0.3", range = "[0.0.3,0.1.0)", transitive = false }
 pihud = { notation = "com.mihono.pickaid:pihud:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
 pigeorender = { notation = "com.mihono.pickaid:pigeorender:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
 piplayeranim = { notation = "com.mihono.pickaid:piplayeranim:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
-picontent = { notation = "com.mihono.pickaid:picontent:0.0.5", range = "[0.0.5,0.1.0)", transitive = false }
+picontent = { notation = "com.mihono.pickaid:picontent:0.0.6", range = "[0.0.6,0.1.0)", transitive = false }
 
 [publish]
 maven_url = "https://maven.mihono.cn/repository/pickaid1201/"

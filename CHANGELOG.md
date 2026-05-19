@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.11
+
+- Consume formal P0 upstream artifacts for Pibrary, PiRenderRuntime, and PiContent.
+
 ## 0.0.10
 
 - Document the P0 integration status, automated evidence, and remaining runClient/manual gameplay gap.
