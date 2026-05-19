@@ -12,12 +12,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
+import org.pickaid.pikey.api.PiInputIntent;
 import org.pickaid.pimorset.armorset.ArmorSet;
 import org.pickaid.pimorset.armorset.ISetEffect;
+import org.pickaid.pimorset.armorset.ItemHurtEffectResult;
 import org.pickaid.pimorset.armorset.capability.ArmorSetCapability;
-import org.pickaid.pibrary.api.event.ItemHurtEffectResult;
 import org.pickaid.pimorset.armorset.common.ArmorSetManager;
-import org.pickaid.pibrary.content.key.KeyData;
 
 public class ExampleSetEffect implements ISetEffect {
     @Override
@@ -62,20 +62,21 @@ public class ExampleSetEffect implements ISetEffect {
     }
 
     @Override
-    public void onSkillPress(ServerPlayer player, KeyData keyData) {}
+    public void onSkillPress(ServerPlayer player, PiInputIntent intent) {}
 
     @Override
-    public void onSkillCharging(ServerPlayer player, KeyData data) {
+    public void onSkillCharging(ServerPlayer player, PiInputIntent intent) {
         var set = ArmorSetManager.getActiveArmorSet(player);
         if (set.getSkillProperties().getCooldown() > 0) {
             return;
         }
-        double scale = data.power > 3.0 ? 0.2 : 0.4;
+        double power = intent.progress() * 4.0D;
+        double scale = power > 3.0 ? 0.2 : 0.4;
         double y;
-        if (data.power > 3.0 && data.power < 3.2) {
+        if (power > 3.0 && power < 3.2) {
             y = 0.3;
-        } else if (data.power > 3.2 && player.fallDistance > 0.1) {
-            y = - data.power + 2.0;
+        } else if (power > 3.2 && player.fallDistance > 0.1) {
+            y = -power + 2.0;
             player.getPersistentData().putBoolean("skillCharging", true);
         } else {
             y = player.getDeltaMovement().y;
@@ -85,7 +86,7 @@ public class ExampleSetEffect implements ISetEffect {
     }
 
     @Override
-    public void onSkillRelease(ServerPlayer player, KeyData data) {
+    public void onSkillRelease(ServerPlayer player, PiInputIntent intent) {
 //        player.level().explode(player,player.getX(),player.getY(),player.getZ(),10,false, Level.ExplosionInteraction.NONE);
         ArmorSetManager.getActiveArmorSet(player).getSkillProperties().setCooldown(100);
     }

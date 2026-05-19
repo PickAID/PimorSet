@@ -10,10 +10,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.ItemStackedOnOtherEvent;
 import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
-import org.pickaid.pibrary.api.event.ItemHurtEffectResult;
-import org.pickaid.pibrary.api.event.StandOnFluidEvent;
+import org.pickaid.pikey.api.PiInputIntent;
+import org.pickaid.pimorset.armorset.ItemHurtEffectResult;
 import org.pickaid.pimorset.armorset.ISetEffect;
-import org.pickaid.pibrary.content.key.KeyData;
+import org.pickaid.pimorset.armorset.StandOnFluidEvent;
 
 /**
  * Custom Set Effect implementation for KubeJS integration.
@@ -181,29 +181,29 @@ public class CustomSetEffect implements ISetEffect {
     }
 
     @Override
-    public void onSkillPress(ServerPlayer player, KeyData keyData) {
+    public void onSkillPress(ServerPlayer player, PiInputIntent intent) {
         if (builder.onSkillPressCallback != null) {
-            builder.onSkillPressCallback.apply(player, keyData);
+            builder.onSkillPressCallback.apply(player, intent);
         } else {
-            ISetEffect.super.onSkillPress(player, keyData);
+            ISetEffect.super.onSkillPress(player, intent);
         }
     }
 
     @Override
-    public void onSkillCharging(ServerPlayer player, KeyData power) {
+    public void onSkillCharging(ServerPlayer player, PiInputIntent intent) {
         if (builder.onSkillChargingCallback != null) {
-            builder.onSkillChargingCallback.apply(player, power);
+            builder.onSkillChargingCallback.apply(player, intent);
         } else {
-            ISetEffect.super.onSkillCharging(player, power);
+            ISetEffect.super.onSkillCharging(player, intent);
         }
     }
 
     @Override
-    public void onSkillRelease(ServerPlayer player, KeyData power) {
+    public void onSkillRelease(ServerPlayer player, PiInputIntent intent) {
         if (builder.onSkillReleaseCallback != null) {
-            builder.onSkillReleaseCallback.apply(player, power);
+            builder.onSkillReleaseCallback.apply(player, intent);
         } else {
-            ISetEffect.super.onSkillRelease(player, power);
+            ISetEffect.super.onSkillRelease(player, intent);
         }
     }
 
@@ -315,17 +315,17 @@ public class CustomSetEffect implements ISetEffect {
 
     @Info("Callback interface for handling skill press events")
     public interface OnSkillPressCallback {
-        void apply(ServerPlayer player, KeyData keyData);
+        void apply(ServerPlayer player, PiInputIntent intent);
     }
 
     @Info("Callback interface for handling skill charging events")
     public interface OnSkillChargingCallback {
-        void apply(ServerPlayer player, KeyData power);
+        void apply(ServerPlayer player, PiInputIntent intent);
     }
 
     @Info("Callback interface for handling skill release events")
     public interface OnSkillReleaseCallback {
-        void apply(ServerPlayer player, KeyData power);
+        void apply(ServerPlayer player, PiInputIntent intent);
     }
 
     public interface GetDescriptionCallback {

@@ -2,11 +2,11 @@ package org.pickaid.pimorset.armorset.example;
 
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.minecraft.tags.TagKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.RegistryObject;
-import org.pickaid.pibrary.Pibrary;
 import org.pickaid.pimorset.PimorSet;
 import org.pickaid.pimorset.api.registry.ArmorSetRegistry;
 import org.pickaid.pimorset.armorset.ArmorSet;
@@ -54,7 +54,7 @@ public class ArmorSetRegistryExample {
                         .addEquipment(EquipmentSlot.FEET, Items.AIR)
                         .build()
         );
-        TEST = ArmorSetRegistry.create(Pibrary.source("test"));
+        TEST = ArmorSetRegistry.create(new ResourceLocation(PimorSet.MOD_ID, "test"));
     }
 
     /**

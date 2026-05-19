@@ -5,12 +5,12 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import org.pickaid.pibrary.Pibrary;
 import org.pickaid.pimorset.api.registry.ArmorSetRegistry;
 import org.pickaid.pimorset.armorset.ArmorSet;
 import org.pickaid.pimorset.armorset.ISetEffect;
 import org.pickaid.pimorset.armorset.capability.ArmorSetCapability;
 import org.pickaid.pimorset.network.PimorSetNetworkHandler;
+import org.pickaid.pimorset.runtime.PimorSetActiveEffects;
 
 import java.util.Set;
 
@@ -93,7 +93,7 @@ public class ArmorSetUpdater {
         ISetEffect effect = armorSet.getEffect();
         if (effect != null) {
             effect.applyEffect(entity);
-            Pibrary.activeEffects.put(entity, effect);
+            PimorSetActiveEffects.put(entity, effect);
         }
     }
 
@@ -108,7 +108,7 @@ public class ArmorSetUpdater {
         ISetEffect effect = armorSet.getEffect();
         if (effect != null) {
             effect.removeEffect(entity);
-            Pibrary.activeEffects.remove(entity);
+            PimorSetActiveEffects.remove(entity);
         }
     }
 }

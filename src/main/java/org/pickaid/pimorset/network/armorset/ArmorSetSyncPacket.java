@@ -2,14 +2,14 @@ package org.pickaid.pimorset.network.armorset;
 
 import dev.xkmc.l2serial.network.SerialPacketBase;
 import dev.xkmc.l2serial.serialization.SerialClass;
-import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.network.NetworkEvent;
 import org.pickaid.pimorset.api.registry.ArmorSetRegistry;
 import org.pickaid.pimorset.armorset.ArmorSet;
-import org.pickaid.pimorset.armorset.capability.ArmorSetCapability;
 import org.pickaid.pimorset.armorset.capability.IArmorSetCapability;
+import org.pickaid.pimorset.handlers.client.ArmorSetSyncClientHandler;
 
 /**
  * Sync the armor set for client players.
@@ -39,18 +39,6 @@ public class ArmorSetSyncPacket extends SerialPacketBase {
     }
 
     private void handleClientSide() {
-        Player clientPlayer = Minecraft.getInstance().player;
-        if (clientPlayer != null) {
-            clientPlayer.getCapability(ArmorSetCapability.ARMOR_SET_CAPABILITY).ifPresent(cap -> {
-                try {
-                    ResourceLocation id = new ResourceLocation(activeSetIdentifier);
-                    ArmorSet activeSet = ArmorSetRegistry.getRegistry().getValue(id);
-                    cap.setActiveSet(activeSet != null ? activeSet : ArmorSetRegistry.EMPTY_SET.get());
-                } catch (Exception e) {
-                    cap.setActiveSet(ArmorSetRegistry.EMPTY_SET.get());
-                    
-                }
-            });
-        }
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ArmorSetSyncClientHandler.handle(activeSetIdentifier));
     }
 }
