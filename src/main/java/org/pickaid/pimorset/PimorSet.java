@@ -18,6 +18,7 @@ import org.pickaid.pimorset.handlers.server.ArmorSetHandler;
 import org.pickaid.pimorset.handlers.server.KeyHandler;
 import org.pickaid.pimorset.handlers.server.SetEffectHandler;
 import org.pickaid.pimorset.network.PimorSetNetworkHandler;
+import org.pickaid.pimorset.runtime.content.PimorSetP0Content;
 
 @Mod(PimorSet.MOD_ID)
 public class PimorSet {
@@ -36,6 +37,7 @@ public class PimorSet {
 
     private void initializeRegistries(IEventBus modEventBus) {
         ArmorSetRegistry.register(modEventBus);
+        PimorSetP0Content.register(modEventBus);
     }
 
     public void onCommonSetup(final FMLCommonSetupEvent event) {

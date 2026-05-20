@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.12
+
+- Register the P0 storm staff, storm altar block, and storm altar block entity through PiContent's delayed Forge registration layer.
+
 ## 0.0.11
 
 - Consume formal P0 upstream artifacts for Pibrary, PiRenderRuntime, and PiContent.

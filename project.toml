@@ -4,7 +4,7 @@ template_version = "1.20.1-template-1.0.0"
 [mod]
 mod_id = "pimorset"
 mod_name = "pimorset"
-version = "0.0.11"
+version = "0.0.12"
 version_suffix = ""
 group = "com.mihono.pickaid"
 authors = ["M1hono"]
@@ -68,7 +68,7 @@ pirenderruntime = { notation = "com.mihono.pickaid:pirenderruntime:0.0.3", trans
 pihud = { notation = "com.mihono.pickaid:pihud:0.0.2", transitive = false }
 pigeorender = { notation = "com.mihono.pickaid:pigeorender:0.0.2", transitive = false }
 piplayeranim = { notation = "com.mihono.pickaid:piplayeranim:0.0.2", transitive = false }
-picontent = { notation = "com.mihono.pickaid:picontent:0.0.6", transitive = false }
+picontent = { notation = "com.mihono.pickaid:picontent:0.0.8", transitive = false }
 
 [dependencies.jarjar]
 pibrary = { notation = "com.mihono.pickaid:pibrary:0.0.11", range = "[0.0.11,0.1.0)", transitive = false }
@@ -81,7 +81,7 @@ pirenderruntime = { notation = "com.mihono.pickaid:pirenderruntime:0.0.3", range
 pihud = { notation = "com.mihono.pickaid:pihud:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
 pigeorender = { notation = "com.mihono.pickaid:pigeorender:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
 piplayeranim = { notation = "com.mihono.pickaid:piplayeranim:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
-picontent = { notation = "com.mihono.pickaid:picontent:0.0.6", range = "[0.0.6,0.1.0)", transitive = false }
+picontent = { notation = "com.mihono.pickaid:picontent:0.0.8", range = "[0.0.8,0.1.0)", transitive = false }
 
 [publish]
 maven_url = "https://maven.mihono.cn/repository/pickaid1201/"
