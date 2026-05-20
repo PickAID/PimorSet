@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.13
+
+- Consume PiEngine's P0 active ability spec layer to declare the gravity lift ability without owning runtime execution.
+
 ## 0.0.12
 
 - Register the P0 storm staff, storm altar block, and storm altar block entity through PiContent's delayed Forge registration layer.
