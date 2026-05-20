@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.16
+
+- Consume PiDataGraph's P0 graph result helpers and PiEngine's graph request classifier for gravity lift requests.
+
 ## 0.0.15
 
 - Consume PiEngine's P0 input bridge to create gravity lift ability intents from upstream input actions.
