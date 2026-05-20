@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.17
+
+- Consume PiEngine 0.0.10 after trimming placeholder P0 APIs.
+
 ## 0.0.16
 
 - Consume PiDataGraph's P0 graph result helpers and PiEngine's graph request classifier for gravity lift requests.
