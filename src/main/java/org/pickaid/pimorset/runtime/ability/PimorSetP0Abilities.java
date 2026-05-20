@@ -9,6 +9,7 @@ public final class PimorSetP0Abilities {
     private static final PiAbilityRegistrationPlan REGISTRATION_PLAN = PiAbilityRegistrationPlan.create(PimorSet.MOD_ID)
             .ability(PiAbilitySpec.named("gravity_lift")
                     .cooldownTicks(80)
+                    .requiredItem(id("storm_staff"))
                     .resourceCheck(id("storm_charge"))
                     .inputAction(id("active_skill"))
                     .graph(id("gravity_lift"))

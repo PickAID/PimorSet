@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.14
+
+- Consume PiEngine's P0 ability intent validation API for the gravity lift example.
+
 ## 0.0.13
 
 - Consume PiEngine's P0 active ability spec layer to declare the gravity lift ability without owning runtime execution.
