@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.15
+
+- Consume PiEngine's P0 input bridge to create gravity lift ability intents from upstream input actions.
+
 ## 0.0.14
 
 - Consume PiEngine's P0 ability intent validation API for the gravity lift example.

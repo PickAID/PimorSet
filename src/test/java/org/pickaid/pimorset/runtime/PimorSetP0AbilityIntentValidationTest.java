@@ -10,6 +10,7 @@ import org.pickaid.piengine.api.ability.PiAbilityValidationDecision;
 import org.pickaid.piengine.api.ability.PiAbilityValidationResult;
 import org.pickaid.piengine.api.actor.PiActor;
 import org.pickaid.piengine.api.actor.PiActorType;
+import org.pickaid.piengine.api.bridge.PiInputRuntimeAccess;
 import org.pickaid.pimorset.runtime.ability.PimorSetP0Abilities;
 
 import java.util.Optional;
@@ -22,7 +23,8 @@ final class PimorSetP0AbilityIntentValidationTest {
     void gravityLiftConsumesPiEngineIntentValidation() {
         PiActor actor = actor("player");
         PiAbilitySpec spec = PimorSetP0Abilities.registrationPlan().ability("gravity_lift");
-        PiAbilityIntent intent = new PiAbilityIntent(actor.id(), id("active_skill"));
+        PiInputRuntimeAccess input = PiInputRuntimeAccess.create();
+        PiAbilityIntent intent = input.abilityIntent(actor, id("active_skill"));
 
         PiAbilityValidationResult accepted = PiAbilityIntentValidator.validate(
                 spec,

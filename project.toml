@@ -4,7 +4,7 @@ template_version = "1.20.1-template-1.0.0"
 [mod]
 mod_id = "pimorset"
 mod_name = "pimorset"
-version = "0.0.14"
+version = "0.0.15"
 version_suffix = ""
 group = "com.mihono.pickaid"
 authors = ["M1hono"]
@@ -60,7 +60,7 @@ rhino = "dev.latvian.mods:rhino-forge:2001.2.2-build.18"
 architectury = { notation = "dev.architectury:architectury-forge:9.1.12", transitive = false }
 pibrary = { notation = "com.mihono.pickaid:pibrary:0.0.11", transitive = false }
 pikey = { notation = "com.mihono.pickaid:pikey:0.0.2", transitive = false }
-piengine = { notation = "com.mihono.pickaid:piengine:0.0.7", transitive = false }
+piengine = { notation = "com.mihono.pickaid:piengine:0.0.8", transitive = false }
 pidatagraph = { notation = "com.mihono.pickaid:pidatagraph:0.0.6", transitive = false }
 pidamage = { notation = "com.mihono.pickaid:pidamage:0.0.1", transitive = false }
 pinet = { notation = "com.mihono.pickaid:pinet:0.0.6", transitive = false }
@@ -73,7 +73,7 @@ picontent = { notation = "com.mihono.pickaid:picontent:0.0.8", transitive = fals
 [dependencies.jarjar]
 pibrary = { notation = "com.mihono.pickaid:pibrary:0.0.11", range = "[0.0.11,0.1.0)", transitive = false }
 pikey = { notation = "com.mihono.pickaid:pikey:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
-piengine = { notation = "com.mihono.pickaid:piengine:0.0.7", range = "[0.0.7,0.1.0)", transitive = false }
+piengine = { notation = "com.mihono.pickaid:piengine:0.0.8", range = "[0.0.8,0.1.0)", transitive = false }
 pidatagraph = { notation = "com.mihono.pickaid:pidatagraph:0.0.6", range = "[0.0.6,0.1.0)", transitive = false }
 pidamage = { notation = "com.mihono.pickaid:pidamage:0.0.1", range = "[0.0.1,0.1.0)", transitive = false }
 pinet = { notation = "com.mihono.pickaid:pinet:0.0.6", range = "[0.0.6,0.1.0)", transitive = false }
