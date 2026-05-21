@@ -20,6 +20,8 @@ import org.pickaid.pimorset.runtime.slice.PimorSetRuntimeSlice;
 import org.pickaid.pinet.api.scope.PiNetScopeKind;
 import org.pickaid.pirig.api.PiRigFallbackReason;
 import org.pickaid.pirig.api.PiRigSocketResolution;
+import org.pickaid.pirenderruntime.api.PiRenderRuntimeRegistry;
+import org.pickaid.pirenderruntime.api.PiRendererType;
 import org.pickaid.pirenderruntime.api.PiSceneFrame;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -40,6 +42,10 @@ final class PimorSetRuntimeSliceTest {
         PiAvatarCue avatarCue = slice.avatarCue();
         PiAvatarAnchorResolution avatarAnchor = slice.avatarAnchor();
         PiContentDatagenBundle content = slice.contentBundle();
+        PiRenderRuntimeRegistry renderRegistry = new PiRenderRuntimeRegistry();
+        PiSceneFrame.Cue<?> castCue = frame.cues().get(0);
+        renderRegistry.register(castCue.type(), PiRendererType.vanillaFallback(id("pimorset:cast_beam")));
+        PiRenderRuntimeRegistry.RouteResult routedCues = renderRegistry.route(frame);
 
         assertEquals(id("pimorset:storm_set"), slice.actor().id());
         assertEquals(id("pimorset:active_skill"), packet.actionId());
@@ -69,6 +75,8 @@ final class PimorSetRuntimeSliceTest {
         assertEquals(new PiLootDeclaration("storm_altar", "self"), content.loot().get(0));
         assertEquals(new PiTagDeclaration("item", "pimorset:staves", "storm_staff"), content.tags().get(0));
         assertEquals(new PiCreativeSampleDeclaration("pimorset", "storm_altar"), content.creativeSamples().get(0));
+        assertEquals(1, routedCues.dispatched().size());
+        assertEquals(castCue.type(), routedCues.dispatched().get(0).cue().type());
     }
 
     private static ResourceLocation id(String value) {
