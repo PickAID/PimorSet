@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.pickaid.pidatagraph.result.PiActionResult;
 import org.pickaid.pidatagraph.result.PiGraphResults;
 import org.pickaid.pidatagraph.result.PiPresentationResult;
+import org.pickaid.piengine.api.bridge.PiGraphPendingRequest;
 import org.pickaid.piengine.api.bridge.PiGraphRequestKind;
 import org.pickaid.piengine.api.bridge.PiGraphRuntimeAccess;
 
@@ -22,5 +23,13 @@ final class PimorSetP0GraphResultBridgeTest {
         assertEquals(PiGraphRequestKind.THROW, graph.requestKind(throwTarget));
         assertEquals(PiGraphRequestKind.DAMAGE, graph.requestKind(damage));
         assertEquals(PiGraphRequestKind.CUE, graph.requestKind(cue));
+
+        PiGraphPendingRequest captureRequest = graph.pendingRequest(capture).orElseThrow();
+        PiGraphPendingRequest cueRequest = graph.pendingRequest(cue).orElseThrow();
+
+        assertEquals(PiGraphRequestKind.CAPTURE, captureRequest.kind());
+        assertEquals("capture.target", captureRequest.payloadKey());
+        assertEquals(PiGraphRequestKind.CUE, cueRequest.kind());
+        assertEquals("beam", cueRequest.payloadKey());
     }
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.18
+
+- Consume PiEngine 0.0.11 pending graph request bridge for the gravity lift example.
+
 ## 0.0.17
 
 - Consume PiEngine 0.0.10 after trimming placeholder P0 APIs.
