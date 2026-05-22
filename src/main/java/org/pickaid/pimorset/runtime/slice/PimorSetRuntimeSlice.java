@@ -122,7 +122,7 @@ public record PimorSetRuntimeSlice(
 
     public PiRigSocketResolution castRigSocket() {
         return PiRigSocketResolver.empty()
-                .withServerSocket("right_hand", PiRigAnchor.bodyOffset(0.0D, 1.4D, -0.4D))
+                .withBoneAnchor("right_hand", PiRigAnchor.bodyOffset(0.0D, 1.4D, -0.4D))
                 .resolve(PiRigSocket.named("right_hand"));
     }
 

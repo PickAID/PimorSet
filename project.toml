@@ -4,7 +4,7 @@ template_version = "1.20.1-template-1.0.0"
 [mod]
 mod_id = "pimorset"
 mod_name = "pimorset"
-version = "0.0.20"
+version = "0.0.21"
 version_suffix = ""
 group = "com.mihono.pickaid"
 authors = ["M1hono"]
@@ -66,7 +66,7 @@ pidamage = { notation = "com.mihono.pickaid:pidamage:0.0.1", transitive = false 
 pinet = { notation = "com.mihono.pickaid:pinet:0.0.6", transitive = false }
 pirenderruntime = { notation = "com.mihono.pickaid:pirenderruntime:0.0.4", transitive = false }
 pihud = { notation = "com.mihono.pickaid:pihud:0.0.2", transitive = false }
-pigeorender = { notation = "com.mihono.pickaid:pigeorender:0.0.2", transitive = false }
+pigeorender = { notation = "com.mihono.pickaid:pigeorender:0.0.3", transitive = false }
 piplayeranim = { notation = "com.mihono.pickaid:piplayeranim:0.0.2", transitive = false }
 picontent = { notation = "com.mihono.pickaid:picontent:0.0.8", transitive = false }
 
@@ -79,7 +79,7 @@ pidamage = { notation = "com.mihono.pickaid:pidamage:0.0.1", range = "[0.0.1,0.1
 pinet = { notation = "com.mihono.pickaid:pinet:0.0.6", range = "[0.0.6,0.1.0)", transitive = false }
 pirenderruntime = { notation = "com.mihono.pickaid:pirenderruntime:0.0.4", range = "[0.0.4,0.1.0)", transitive = false }
 pihud = { notation = "com.mihono.pickaid:pihud:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
-pigeorender = { notation = "com.mihono.pickaid:pigeorender:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
+pigeorender = { notation = "com.mihono.pickaid:pigeorender:0.0.3", range = "[0.0.3,0.1.0)", transitive = false }
 piplayeranim = { notation = "com.mihono.pickaid:piplayeranim:0.0.2", range = "[0.0.2,0.1.0)", transitive = false }
 picontent = { notation = "com.mihono.pickaid:picontent:0.0.8", range = "[0.0.8,0.1.0)", transitive = false }
 

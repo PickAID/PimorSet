@@ -62,7 +62,7 @@ final class PimorSetRuntimeSliceTest {
         assertFalse(gravityLift.sceneFrame().cues().isEmpty());
         assertEquals(80, gravityLift.hudState().cooldownTicks());
         assertEquals("right_hand", rigSocket.socket().name());
-        assertEquals(PiRigFallbackReason.SERVER_SOCKET, rigSocket.reason());
+        assertEquals(PiRigFallbackReason.BONE, rigSocket.reason());
         assertEquals("set_burst", avatarCue.animationId());
         assertEquals(PiAvatarMask.UPPER_BODY, avatarCue.mask());
         assertEquals(PiFirstPersonMode.VANILLA, avatarCue.firstPersonMode());

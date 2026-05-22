@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.21
+
+- Consume PiGeoRender 0.0.3 socket resolver anchor registration for the gravity lift example.
+
 ## 0.0.20
 
 - Consume PiRenderRuntime 0.0.4 scene-frame cue routing for the gravity lift example.
